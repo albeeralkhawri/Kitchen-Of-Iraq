@@ -12,10 +12,20 @@ mongo = PyMongo(app)
 
 @app.route('/')
 
-# FOR HOME PAGE
+# for home page
 @app.route('/home')
 def home():
     return render_template("home.html", login=mongo.db.IQ2019.find())
+    
+# for register form to To save data in mongodb
+@app.route('/register', methods=['POST']) 
+def register():
+    print(request.form)
+    data = dict(request.form)
+    user_name = data['user_name']
+    password = data['password']
+    mongo.db.users.insert_one({"user_name": user_name, "password": password})
+    return render_template("home.html")
     
 if __name__ == '__main__':
     app.run(host=os.environ.get('IP'),
