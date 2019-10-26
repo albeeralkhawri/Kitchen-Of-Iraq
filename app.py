@@ -27,6 +27,17 @@ def register():
     mongo.db.users.insert_one({"user_name": user_name, "password": password})
     return render_template("home.html")
     
+# for login form 
+@app.route('/login', methods=['POST'])
+def login():
+    data = dict(request.form)
+    print(data)
+    user_name = data['user_name']
+    password = data['password']
+    mongo_data = mongo.db.users.find_one({"user_name": user_name})
+    print(mongo_data)
+    return render_template("home.html")
+    
 if __name__ == '__main__':
     app.run(host=os.environ.get('IP'),
              port=int(os.environ.get('PORT')),
