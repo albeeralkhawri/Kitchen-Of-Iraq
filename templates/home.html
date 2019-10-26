@@ -1,0 +1,70 @@
+{% extends 'base.html'%} {% block content %}
+<div class="home-container">
+    <nav>
+        <div class="nav-wrapper black" style="height:70px">
+            <a href="#" class="left brand-logo" style="font-size:30px; margin-left:10px">Kitchen Of Iraq</a>
+            <div class="row" style="width: 40%;">
+                <form action="/login" method="post">
+                    <div class="input-field col s6">
+                        <i class="material-icons prefix">account_circle</i>
+                        <input id="icon_prefix" type="text" class="validate" name="user_name" required>
+                        <label for="icon_prefix">User name</label>
+                    </div>
+                    <div class="input-field col s6">
+                        <i class="material-icons prefix">lock</i>
+                        <input id="icon_password" type="password" class="validate" minlength="8" name="password" required>
+                        <label for="icon_password">Password</label>
+                    </div>
+                    <div class="col" style="float: right; margin-right:-30%">
+                        <div class="login_form_login_button uiButton uiButtonConfirm">
+                            <button class="waves-effect waves-light btn" type="submit">Log In</button>
+                        </div>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </nav>
+    <div class="text-left">
+        <h1> Welcome! </h1>
+        <h3> In kitchen of Iraq </h3>
+        <h3> Thanks for visiting and watching happy </h3>
+    </div>
+    <form action="/register" method="post" class="col s12 form">
+        <h1>Create a new user</h1>
+        <h3>It's quick and easy</h3>
+        <div class="row" style="width: 70%;">
+            <div class="input-field col s12">
+                <i class="material-icons prefix">account_circle</i>
+                <input id="user_name" name="user_name" type="text" class="validate" required>
+                <label for="icon_prefix">User name</label>
+            </div>
+            <div class="row">
+                <div class="input-field col s12">
+                    <i class="material-icons prefix">lock</i>
+                    <input id="password" type="password" name="password" class="validate" minlength="8" required>
+                    <label for="password">Password (8 minimum)</label>
+                </div>
+                <div class="row">
+                    <div class="input-field col s12">
+                        <i class="material-icons prefix"></i>
+                        <input type="password" id="confirm_password" class="validate" required>
+                        <label for="confirm_password">Confirm Password</label>
+                    </div>
+                    <div class="col signup">
+                        <div class="login_form_login_button uiButton uiButtonConfirm">
+                            <button type="submit" class="waves-effect waves-light btn">Sign Up</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </form>
+    <footer class="page-footer">
+        <div class="container">
+            <div class="text-center">
+                <p> kitchen of Iraq: created by Albeer Alkhawri</p>
+            </div>
+        </div>
+    </footer>
+</div>
+{% endblock %}
