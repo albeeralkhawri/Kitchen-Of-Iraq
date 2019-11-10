@@ -37,7 +37,7 @@ def login():
     password = data['password']
     mongo_data = mongo.db.users.find_one({"user_name": user_name})
     print(mongo_data)
-    return render_template("home.html")
+    return redirect(url_for('get_recipes'))
   
  # for add recipes  
 @app.route('/add_recipes')
