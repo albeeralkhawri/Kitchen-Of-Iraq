@@ -45,7 +45,22 @@ def add_recipes():
     return render_template('addrecipes.html',
                            Categories=mongo.db.OfIraqMDB.find())
     
-    
+@app.route('/insert_recipe', methods=['POST'])
+def insert_recipe():
+    recipes = mongo.db.recipes
+    if 'recipe_image' not in request.files:
+        return "Error"
+    image = request.files.get('recipe_image')
+    files.put(
+        image,
+        content_type=image.content_type,
+        filename=image.filename
+    )
+    recipe_data = (request.form.to_dict())
+    recipe_data['recipe_image'] = image.filename
+    recipes.insert_one(recipe_data)
+    return redirect(url_for('get_recipes'))
+
 if __name__ == '__main__':
     app.run(host=os.environ.get('IP'),
              port=int(os.environ.get('PORT')),
