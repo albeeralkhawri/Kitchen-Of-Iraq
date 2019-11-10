@@ -77,6 +77,13 @@ def search():
     return render_template("recipes.html", recipes=mongo_data)
 
 
+@app.route('/edit_recipe/<recipe_id>')
+def edit_recipe(recipe_id):
+    the_recipe =  mongo.db.recipes.find_one({"_id": ObjectId(recipe_id)})
+    all_Categories =  mongo.db.OfIraqMDB.find()
+    return render_template('editrecipe.html', recipe=the_recipe,
+                           Categories=all_Categories)
+
 if __name__ == '__main__':
     app.run(host=os.environ.get('IP'),
              port=int(os.environ.get('PORT')),
