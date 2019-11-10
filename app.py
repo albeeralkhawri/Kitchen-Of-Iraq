@@ -51,12 +51,18 @@ def insert_recipe():
     recipes = mongo.db.recipes
     if 'recipe_image' not in request.files:
         return "Error"
+        
+    # Extract the photo from the request
     image = request.files.get('recipe_image')
+    
+    # Save the photo in mongo
     files.put(
         image,
         content_type=image.content_type,
         filename=image.filename
     )
+    
+    # Save the recipe into the database with the filename
     recipe_data = (request.form.to_dict())
     recipe_data['recipe_image'] = image.filename
     recipes.insert_one(recipe_data)
@@ -75,14 +81,17 @@ def search():
     recipe_name = search_data["search"]
     mongo_data = mongo.db.recipes.find({"recipe_name": recipe_name})
     return render_template("recipes.html", recipes=mongo_data)
-
+    
+# for edit recipe
 @app.route('/edit_recipe/<recipe_id>')
 def edit_recipe(recipe_id):
     the_recipe =  mongo.db.recipes.find_one({"_id": ObjectId(recipe_id)})
     all_Categories =  mongo.db.OfIraqMDB.find()
     return render_template('editrecipe.html', recipe=the_recipe,
                            Categories=all_Categories)
-                           
+    
+#for update recipe                       
+@app.route('/update_recipe/<recipe_id>', methods=["POST"])
 def update_recipe(recipe_id):
     recipes = mongo.db.recipes
     image = request.files.get('recipe_image')
@@ -100,6 +109,12 @@ def update_recipe(recipe_id):
         'is_Recommended':request.form.get('is_Recommended')
     })
     return redirect(url_for('get_recipes'))
+    
+
+@app.route('/images/<filename>')
+def image(filename):
+    image = files.get_last_version(filename=filename)
+    return Response(image.read(), mimetype=image.content_type)
     
 if __name__ == '__main__':
     app.run(host=os.environ.get('IP'),
