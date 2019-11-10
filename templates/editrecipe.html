@@ -1,0 +1,77 @@
+{% extends 'base.html' %} {% block content %}
+<div class="new-recipe">
+    <nav>
+        <div class="nav-wrapper black">
+            <a class="brand-logo" style="font-size:30px; margin-left:10px">Kitchen Of Iraq</a>
+            <ul id="slide-out" class="side-nav">
+                <li><a class="btn red" href="{{ url_for('add_recipes') }}">Add Recipes</a></li>
+                <li><a class="btn" href="{{ url_for('get_recipes') }}">Recipes</a></li>
+                <li><a class="btn blue" href="#!">Log out</a></li>
+            </ul>
+            <ul class="right hide-on-med-and-down">
+                <a class="waves-effect waves-light btn red left" href="{{ url_for('add_recipes') }}" style="margin-top: 2%"><i class="material-icons left">playlist_add</i>Add Recipes</a>
+                <a class="waves-effect waves-light btn left" href="{{ url_for('get_recipes') }}" style="margin-top: 2%"><i class="material-icons left">restaurant_menu</i>Recipes</a>
+                <a class="waves-effect waves-light btn blue left" href="#!" style="margin-top: 2%"><i class="material-icons left">exit_to_app</i>Log out</a>
+            </ul>
+            <a href="#" data-activates="slide-out" class="button-collapse"><i class="material-icons">menu</i></a>
+        </div>
+    </nav>
+    <div class="container">
+        <h2>Edit Recipe</h2>
+        <div class="row">
+            <form action="{{ url_for('update_recipe', recipe_id=recipe._id) }}" method="POST" enctype="multipart/form-data" class="col s12">
+                <div class="row">
+                    <div class="row">
+                        <div class="input-field col s12">
+                            <i class="material-icons prefix">poll</i>
+                            <select id="category" name="category_name" required>
+                                <option value="" disabled selected>Choose category</option>
+                                {% for cat in Categories %} {% if cat.category_name == recipe.category_name %}
+                                <option value="{{cat.category_name}}" selected>{{cat.category_name}}</option>
+                                {% else %}
+                                <option value="{{cat.category_name}}">{{cat.category_name}}</option>
+                                {% endif %} {% endfor %}
+                            </select>
+                            <label>Recipes Categories</label>
+                        </div>
+                    </div>
+                    <div class="input-field col s12">
+                        <i class="material-icons prefix">restaurant</i>
+                        <input id="recipe_name" name="recipe_name" type="text" value="{{recipe.recipe_name}}" required>
+                        <label for="icon_prefix">Recipes Name</label>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="input-field col s12">
+                        <i class="material-icons prefix">restaurant_menu</i>
+                        <textarea name="recipe_description" id="recipe_description" class="materialize-textarea" required>{{recipe.recipe_description}}</textarea>
+                        <label for="icon_telephone">Description of the recipe</label>
+                    </div>
+                </div>
+                <div class="input-field col s12 file-field input-field" style="margin-bottom:3%;">
+                    <div class="btn red right">
+                        <span>Select Image</span>
+                        <input name="recipe_image" id="recipe_iamge" type="file" required>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="switch">
+                        <label>
+                            {% if recipe.is_Recommended %}
+                            <input id="is_Recommended" name="is_Recommended" type="checkbox" checked> {% else %}
+                            <input id="is_Recommended" name="is_Recommended" type="checkbox"> {% endif %}
+                            <span class="lever"></span> Recommended
+                        </label>
+                    </div>
+                </div>
+                <div class="row">
+                    <button class="btn waves-effect waves-light red" type="submit" name="action">Edit recipe
+                        <i class="material-icons right">playlist_add</i>
+                    </button>
+                </div>
+            </form>
+        </div>
+    </div>
+</div>
+
+{% endblock %}
