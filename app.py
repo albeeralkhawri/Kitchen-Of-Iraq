@@ -1,7 +1,8 @@
 import os
-from flask import Flask, render_template, redirect, request, url_for
+from flask import Flask, render_template, redirect, request, url_for, Response
 from flask_pymongo import PyMongo
 from bson.objectid import ObjectId
+from gridfs import GridFS
 
 app = Flask(__name__)
 
@@ -9,7 +10,7 @@ app.config["MONGO_DBNAME"] = 'IraqDB'
 app.config["MONGO_URI"] = os.getenv('MONGO_URI', 'mongodb://localhost')
 
 mongo = PyMongo(app)
-
+files = GridFS(mongo.db)
 @app.route('/')
 
 # for home page
@@ -25,9 +26,9 @@ def register():
     user_name = data['user_name']
     password = data['password']
     mongo.db.users.insert_one({"user_name": user_name, "password": password})
-    return render_template("home.html")
+    return redirect(url_for('get_recipes'))
     
-# for login form 
+# for login form to join with mongodb data
 @app.route('/login', methods=['POST'])
 def login():
     data = dict(request.form)
@@ -37,6 +38,13 @@ def login():
     mongo_data = mongo.db.users.find_one({"user_name": user_name})
     print(mongo_data)
     return render_template("home.html")
+  
+ # for add recipes  
+@app.route('/add_recipes')
+def add_recipes():
+    return render_template('addrecipes.html',
+                           Categories=mongo.db.OfIraqMDB.find())
+    
     
 if __name__ == '__main__':
     app.run(host=os.environ.get('IP'),
