@@ -1,0 +1,58 @@
+{% extends 'base.html'%} {% block content %}
+<div class="recipe">
+    <nav>
+        <div class="nav-wrapper black">
+            <a class="brand-logo" style="font-size:30px; margin-left:10px">Kitchen Of Iraq</a>
+            <ul id="slide-out" class="side-nav">
+                <li><a class="btn red" href="{{ url_for('add_recipes') }}">Add Recipes</a></li>
+                <li><a class="btn" href="{{ url_for('get_recipes') }}">Recipes</a></li>
+                <li><a class="btn blue" href="#!">Log out</a></li>
+            </ul>
+            <ul class="right hide-on-med-and-down">
+                <a class="waves-effect waves-light btn red left" href="{{ url_for('add_recipes') }}" style="margin-top: 2%"><i class="material-icons left">playlist_add</i>Add Recipes</a>
+                <a class="waves-effect waves-light btn left" href="{{ url_for('get_recipes') }}" style="margin-top: 2%"><i class="material-icons left">restaurant_menu</i>Recipes</a>
+                <a class="waves-effect waves-light btn blue left" href="#!" style="margin-top: 2%"><i class="material-icons left">exit_to_app</i>Log out</a>
+            </ul>
+            <a href="#" data-activates="slide-out" class="button-collapse"><i class="material-icons">menu</i></a>
+        </div>
+    </nav>
+    <div class="container center">
+        <form action="/search" method="POST">
+            <a class="waves-effect waves-light">
+                <input type="search" name="search" placeholder="search recipe name" class="search" style="font-size:20px; width:300px" />
+            </a>
+            <a class="waves-effect waves-light btn blue">
+                <input type="submit" value="search" style="outline: none" />
+            </a>
+        </form>
+        <div class="row" style="margin-top:10%">
+            <ul class="collapsible" data-collapsible="accordion">
+                {% for recipe in recipes %}
+                <li>
+                    <div class="collapsible-header">
+                        <div class="col s4">
+                            <i class="material-icons">expand_more</i>
+                            <a href="{{url_for('delete_recipe', recipe_id=recipe._id)}}" class="waves-effect waves-light btn btn_small red">Delete</a>
+                            <a href="{{url_for('edit_recipe', recipe_id=recipe._id)}}" class="waves-effect waves-light btn btn_small blue">Edit</a>
+                        </div>
+                        <div class="task_header col s9">
+                            <strong>{{recipe.recipe_name}}</strong> - {{recipe.category_name}}
+                        </div>
+                    </div>
+                    <div class="collapsible-body">
+                        <span>
+                {{recipe.recipe_description}}
+            </span>
+                    </div>
+                    <div class="collapsible-body">
+                        <span>
+                <img class="materialboxed" width="650" alt="Recipe-Photos" src="/images/{{recipe['recipe_image']}}"></img>
+            </span>
+                    </div>
+                </li>
+                {% endfor %}
+            </ul>
+        </div>
+    </div>
+</div>
+{% endblock %}
