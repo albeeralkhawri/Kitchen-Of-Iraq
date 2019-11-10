@@ -44,7 +44,8 @@ def login():
 def add_recipes():
     return render_template('addrecipes.html',
                            Categories=mongo.db.OfIraqMDB.find())
-    
+   
+# for insert recipe
 @app.route('/insert_recipe', methods=['POST'])
 def insert_recipe():
     recipes = mongo.db.recipes
@@ -60,10 +61,21 @@ def insert_recipe():
     recipe_data['recipe_image'] = image.filename
     recipes.insert_one(recipe_data)
     return redirect(url_for('get_recipes'))
-    
+
+#for get recipes
 @app.route('/get_recipes')
 def get_recipes():
     return render_template("recipes.html", recipes=mongo.db.recipes.find())
+
+
+# for search name of recipes
+@app.route('/search', methods=['POST'])
+def search():
+    search_data = dict(request.form)
+    recipe_name = search_data["search"]
+    mongo_data = mongo.db.recipes.find({"recipe_name": recipe_name})
+    return render_template("recipes.html", recipes=mongo_data)
+
 
 if __name__ == '__main__':
     app.run(host=os.environ.get('IP'),
