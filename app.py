@@ -83,6 +83,24 @@ def edit_recipe(recipe_id):
     return render_template('editrecipe.html', recipe=the_recipe,
                            Categories=all_Categories)
                            
+def update_recipe(recipe_id):
+    recipes = mongo.db.recipes
+    image = request.files.get('recipe_image')
+    files.put(
+        image,
+        content_type=image.content_type,
+        filename=image.filename
+    )
+    recipes.update( {'_id': ObjectId(recipe_id)},
+    {
+        'recipe_name':request.form.get('recipe_name'),
+        'category_name':request.form.get('category_name'),
+        'recipe_description': request.form.get('recipe_description'),
+        'recipe_image': image.filename,
+        'is_Recommended':request.form.get('is_Recommended')
+    })
+    return redirect(url_for('get_recipes'))
+    
 if __name__ == '__main__':
     app.run(host=os.environ.get('IP'),
              port=int(os.environ.get('PORT')),
