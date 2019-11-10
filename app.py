@@ -60,6 +60,10 @@ def insert_recipe():
     recipe_data['recipe_image'] = image.filename
     recipes.insert_one(recipe_data)
     return redirect(url_for('get_recipes'))
+    
+@app.route('/get_recipes')
+def get_recipes():
+    return render_template("recipes.html", recipes=mongo.db.recipes.find())
 
 if __name__ == '__main__':
     app.run(host=os.environ.get('IP'),
