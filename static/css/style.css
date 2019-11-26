@@ -4,16 +4,17 @@
  html,body{
      font-family: 'Squada One', cursive;
      height: 100%!important;
-     color: #fff 
+     color: #fff;
+     margin-left:auto;
+     margin-right: auto
 }
 /* FOR Sign Up FORM */
  .form{
-     width:750px;
      float: right;
      margin-top: 2%;
      color: white;
      margin-left: auto;
-     margin-right: auto 
+     margin-right: 150px 
 }
  .input-field label{
      color: #fff!important;
@@ -22,8 +23,8 @@
      margin-top: 10% 
 }
 /*FOR WELCOME TEXT HOME PAGE*/
- h1,h3{
-     width: 70%;
+h1,h3{
+     width: 90%;
      margin-left: auto;
      margin-right: auto 
 }
@@ -31,6 +32,11 @@
      margin-top: 10%;
      width: 90%;
      color: #fff 
+}
+.home-container{
+   margin-left: auto;
+  margin-right: auto;
+  zoom: 1;
 }
 /*FOR BACKGROUND IMAGE HOME PAGE*/
  body{
@@ -95,3 +101,20 @@
      padding: 0 0.5em;
 }
 
+/* for recipe */
+h1{
+ color: #26a69a;
+}
+
+strong{
+    margin-left: auto;
+    margin-right: auto;
+}
+
+p{
+ font-size: x-large;
+}
+
+a{
+ color: #fff
+}

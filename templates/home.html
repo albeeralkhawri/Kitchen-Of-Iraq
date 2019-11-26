@@ -27,12 +27,12 @@
     <div class="text-left">
         <h1> Welcome! </h1>
         <h3> In Kitchen Of Iraq </h3>
-        <h3> Thanks for visiting and watching happy </h3>
+        <h3> Thanks for visiting and watching happy</h3>
     </div>
     <form action="/register" method="post" class="col s12 form">
         <h1>Create a new user</h1>
         <h3>It's quick and easy</h3>
-        <div class="row" style="width: 70%;">
+        <div class="row">
             <div class="input-field col s12">
                 <i class="material-icons prefix">account_circle</i>
                 <input id="user_name" name="user_name" type="text" class="validate" required>
@@ -46,7 +46,7 @@
                 </div>
                 <div class="row">
                     <div class="input-field col s12">
-                        <i class="material-icons prefix"></i>
+                        <i class="material-icons prefix">refresh</i>
                         <input type="password" id="confirm_password" class="validate" required>
                         <label for="confirm_password">Confirm Password</label>
                     </div>
@@ -65,4 +65,5 @@
         </div>
     </footer>
 </div>
+<script src="{{url_for('static', filename='js/min.js')}}"></script>
 {% endblock %}

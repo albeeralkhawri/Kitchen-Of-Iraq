@@ -1,10 +1,14 @@
 <!DOCTYPE html>
-<html>
+<html lang="en">
 
 <head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="minimum-scale=0, user-scalable=yes, width=980">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.100.2/css/materialize.min.css">
     <link rel="stylesheet" href="{{url_for('static', filename='css/style.css')}}" type="text/css" />
+    <link rel="shortcut icon" href="{{url_for('static', filename='image/logo.ico')}}" />
     <title>Kitchen Of Iraq</title>
 </head>
 
@@ -12,8 +16,7 @@
     {% block content %}{% endblock %}
     <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.100.2/js/materialize.min.js"></script>
-    <script src="static/js/jquery.js"></script>
-    <script src="static/js/min.js"></script>
+    <script src="{{url_for('static', filename='js/jquery.js')}}"></script>
 </body>
 
 </html>
