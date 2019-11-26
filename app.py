@@ -1,13 +1,18 @@
 import os
-from flask import Flask, render_template, redirect, request, url_for, Response
+import sys
+import logging
+from flask import Flask, render_template, redirect, request, url_for, Response, session
 from flask_pymongo import PyMongo
 from bson.objectid import ObjectId
 from gridfs import GridFS
+logging.basicConfig(level=logging.DEBUG)
 
 app = Flask(__name__)
 
 app.config["MONGO_DBNAME"] = 'IraqDB'
 app.config["MONGO_URI"] = os.getenv('MONGO_URI', 'mongodb://localhost')
+
+app.config["SECRET_KEY"] = "super secret key"
 
 mongo = PyMongo(app)
 files = GridFS(mongo.db)
@@ -38,14 +43,21 @@ def login():
     user_name = data['user_name']
     password = data['password']
     mongo_data = mongo.db.users.find_one({"user_name": user_name})
-    print(mongo_data)
+    if mongo_data is None:
+        return redirect(url_for('notfound'))
+    session['user_name'] = user_name
     return redirect(url_for('get_recipes'))
+
+# for not found
+@app.route('/notfound')
+def notfound():
+    return render_template('notfound.html')
   
  # for add recipes  
 @app.route('/add_recipes')
 def add_recipes():
     return render_template('addrecipes.html',
-                           Categories=mongo.db.OfIraqMDB.find())
+                           Categories=mongo.db.categories.find())
    
 # for insert recipe
 @app.route('/insert_recipe', methods=['POST'])
@@ -74,7 +86,7 @@ def insert_recipe():
 #for get recipes
 @app.route('/get_recipes')
 def get_recipes():
-    return render_template("recipes.html", recipes=mongo.db.recipes.find())
+    return render_template("recipes.html", recipes=mongo.db.recipes.find(),names=mongo.db.recipes.find())
 
 
 # for search name of recipes
@@ -83,14 +95,14 @@ def search():
     search_data = dict(request.form)
     recipe_name = search_data["search"]
     mongo_data = mongo.db.recipes.find({"recipe_name": recipe_name})
-    return render_template("recipes.html", recipes=mongo_data)
+    return render_template("recipes.html", recipes=mongo_data, names=mongo.db.recipes.find())
  
     
 # for edit recipe
 @app.route('/edit_recipe/<recipe_id>')
 def edit_recipe(recipe_id):
     the_recipe =  mongo.db.recipes.find_one({"_id": ObjectId(recipe_id)})
-    all_Categories =  mongo.db.OfIraqMDB.find()
+    all_Categories =  mongo.db.categories.find()
     return render_template('editrecipe.html', recipe=the_recipe,
                            Categories=all_Categories)
   
@@ -132,37 +144,42 @@ def delete_recipe(recipe_id):
 @app.route('/get_categories')
 def get_categories():
     return render_template('categories.html',
-                           categories=mongo.db.OfIraqMDB.find())
+                           categories=mongo.db.categories.find())
                            
-                           
+
+# for edit category                           
 @app.route('/edit_category/<category_id>')
 def edit_category(category_id):
     return render_template('editcategory.html',
-                           category=mongo.db.OfIraqMDB.find_one(
+                           category=mongo.db.categories.find_one(
                            {'_id': ObjectId(category_id)}))
                            
-                           
+
+# for update category                           
 @app.route('/update_category/<category_id>', methods=['POST'])
 def update_category(category_id):
-    mongo.db.OfIraqMDB.update(
+    mongo.db.categories.update(
         {'_id': ObjectId(category_id)},
         {'category_name': request.form.get('category_name')})
     return redirect(url_for('get_categories'))
     
-    
+
+# for delete category    
 @app.route('/delete_category/<category_id>')
 def delete_category(category_id):
-    mongo.db.OfIraqMDB.remove({'_id': ObjectId(category_id)})
+    mongo.db.categories.remove({'_id': ObjectId(category_id)})
     return redirect(url_for('get_categories'))
     
-    
+
+# for insert category   
 @app.route('/insert_category', methods=['POST'])
 def insert_category():
     category_doc = {'category_name': request.form.get('category_name')}
-    mongo.db.OfIraqMDB.insert_one(category_doc)
+    mongo.db.categories.insert_one(category_doc)
     return redirect(url_for('get_categories'))
+ 
     
-    
+# for add category  
 @app.route('/add_category')
 def add_category():
     return render_template('addcategory.html')
