@@ -6,7 +6,7 @@
      height: 100%!important;
      color: #fff;
      margin-left:auto;
-     margin-right: auto
+     margin-right: auto 
 }
 /* FOR Sign Up FORM */
  .form{
@@ -23,7 +23,7 @@
      margin-top: 10% 
 }
 /*FOR WELCOME TEXT HOME PAGE*/
-h1,h3{
+ h1,h3{
      width: 90%;
      margin-left: auto;
      margin-right: auto 
@@ -33,10 +33,10 @@ h1,h3{
      width: 90%;
      color: #fff 
 }
-.home-container{
-   margin-left: auto;
-  margin-right: auto;
-  zoom: 1;
+ .home-container{
+     margin-left: auto;
+     margin-right: auto;
+     zoom: 1;
 }
 /*FOR BACKGROUND IMAGE HOME PAGE*/
  body{
@@ -59,7 +59,6 @@ h1,h3{
      display: table;
      height: auto;
 }
-
  h2{
      color: #f44336 
 }
@@ -76,7 +75,6 @@ h1,h3{
      margin-left: auto;
      margin-right: auto 
 }
-
 /* for search recipe*/
  .search{
      margin-top: 5%!important;
@@ -91,7 +89,6 @@ h1,h3{
  .collapsible-body{
      color: darkgery;
 }
-
 /* for button of recipe*/
  .btn_small {
      height: 24px;
@@ -100,21 +97,32 @@ h1,h3{
      margin: 5px 5px;
      padding: 0 0.5em;
 }
-
 /* for recipe */
-h1{
- color: #26a69a;
+ h1{
+     color: #26a69a;
 }
-
-strong{
-    margin-left: auto;
-    margin-right: auto;
+ strong{
+     margin-left: auto;
+     margin-right: auto;
 }
-
-p{
- font-size: x-large;
+ p{
+     font-size: x-large;
 }
-
-a{
- color: #fff
+ a{
+     color: #fff 
 }
+/* responsive screen home page*/
+ @media only screen and (max-width: 1024px){
+     .login{
+         display: none 
+    }
+     .log{
+         display: block!important;
+         width:50%;
+         margin-top: 10%;
+    }
+     .lo{
+         margin: 0 40% auto!important 
+    }
+}
+ 
