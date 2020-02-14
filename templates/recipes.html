@@ -2,7 +2,7 @@
 <div class="recipe">
     <nav>
         <div class="nav-wrapper black">
-            <a class="brand-logo" style="font-size:30px; margin-left:10px">Kitchen Of Iraq</a>
+            <a class="brand-logo" style="font-size:30px; margin-left:10px" href="{{ url_for('get_recipes') }}">Kitchen Of Iraq</a>
             <ul id="slide-out" class="side-nav">
                 <li><a class="btn red" href="{{ url_for('add_recipes') }}">Add Recipe</a></li>
                 <li><a class="btn" href="{{ url_for('get_recipes') }}">Recipes</a></li>
@@ -33,34 +33,27 @@
                 <input type="submit" value="search" style="outline: none" />
             </a>
         </form>
-        <div class="row" style="margin-top:10%">
-            <ul class="collapsible" data-collapsible="accordion">
-                {% for recipe in recipes %}
-                <li>
-                    <div class="collapsible-header">
-                        <div class="col s6">
-                            <i class="material-icons">expand_more</i>
-                            <a href="{{url_for('delete_recipe', recipe_id=recipe._id)}}" class="waves-effect waves-light btn btn_small red">Delete</a>
-                            <a href="{{url_for('edit_recipe', recipe_id=recipe._id)}}" class="waves-effect waves-light btn btn_small blue">Edit</a>
-                        </div>
-                        <div class="col s9">
-                            <strong>{{recipe.recipe_name}}</strong> - {{recipe.category_name}}
-                        </div>
-                    </div>
-                    <div class="collapsible-body">
-                        <span>
-                {{recipe.recipe_description}}
-            </span>
-                    </div>
-                    <div class="collapsible-body">
-                        <span>
-                <img class="materialboxed" width="650" alt="Recipe-Photos" src="/images/{{recipe['recipe_image']}}"></img>
-            </span>
-                    </div>
-                </li>
-                {% endfor %}
-            </ul>
-        </div>
     </div>
-</div>
-{% endblock %}
+
+    <ul class="recipes-list">
+        {% for recipe in recipes %}
+        <li>
+            <a href="{{ url_for('recipe_detail', recipe_id=recipe._id)}}">
+                <div class="image">
+                    <img alt="recipe-image" src="/images/{{recipe['recipe_image']}}">
+                </div>
+                <h5>{{recipe.recipe_name}}</h5>
+                <div>
+                    <span>{{recipe.category_name}}</span>
+                </div>
+                <div class="col s6">
+                    <a href="{{url_for('delete_recipe', recipe_id=recipe._id)}}" class="waves-effect waves-light btn btn_small red">Delete</a>
+                    <a href="{{url_for('edit_recipe', recipe_id=recipe._id)}}" class="waves-effect waves-light btn btn_small blue">Edit</a>
+                </div>
+            </a>
+        </li>
+        
+        {% endfor %}
+    </ul>
+
+    {% endblock %}
