@@ -58,7 +58,6 @@
  .switch label input[type=checkbox]:checked+.lever{
      background-color: red;
 }
- 
 /* for search recipe*/
  .search{
      margin-top: 5%!important;
@@ -78,17 +77,11 @@
      margin: 5px 5px;
      padding: 0 0.5em;
 }
-/* for recipe */
- h1{
-     color: #26a69a;
+/*Font or Text color */
+ h1,h4,h5,a{
+     color:silver 
 }
-
- p{
-     font-size: x-large;
-}
- a{
-     color: #fff 
-}
+/*End Font or Text color*/
 /* responsive screen home page*/
  @media only screen and (max-width: 1024px){
      .login{
@@ -104,38 +97,84 @@
     }
 }
 /* Recipes List */
-.recipes-list {
-  list-style: none;
-  padding: 0;
-  margin: 0;
-  margin-top: 3%;
-  display: flex;
-  flex-wrap: wrap;
-  justify-content: center;
-  text-align: center
+ .recipes-list {
+     list-style: none;
+     padding: 0;
+     margin: 0;
+     margin-top: 3%;
+     display: flex;
+     flex-wrap: wrap;
+     justify-content: center;
+     text-align: center 
 }
-
-.recipes-list li {
-  width: 350px;
-  padding: 10px;
-  margin: 10px;
-  border: 1px solid #ccc;
+ .recipes-list li {
+     width: 350px;
+     padding: 10px;
+     margin: 10px;
+     border: 1px solid #ccc;
 }
-
-.recipes-list h5 {
-  margin: 0;
+ .recipes-list h5 {
+     margin: 0;
 }
-
-.recipes-list .image {
-  margin-bottom: 10px;
+ .recipes-list .image {
+     margin-bottom: 10px;
 }
-
-.recipes-list img {
-    display: block;
-    width:  300px;
-    height:200px;
-    background-size: cover;
-    margin-left: auto;
-    margin-right: auto;
+ .recipes-list img {
+     display: block;
+     width: 300px;
+     height:200px;
+     background-size: cover;
+     margin-left: auto;
+     margin-right: auto;
 }
 /* End Recipes List */
+
+/*Recipe detail*/
+ .image-detail img{
+     border-radius: 20px!important;
+     margin-top: auto;
+     width: 200px;
+     height: 200px;
+     margin-bottom: 30px;
+     float: right;
+     margin-right: 25px 
+}
+ .materialboxed.active{
+     border-radius: 20px!important;
+     margin-top: auto;
+     margin-left: auto;
+}
+
+ .recipe-name, 
+ .recipe-category, 
+ .recipe-recommended, 
+ .recipe-cooking, 
+ .recipe-preparation, 
+ .recipe-ingredients, 
+ .recipe-description {
+     display: flex;
+     margin: .50em;
+}
+ .recipe-detail{
+     margin-top: 5% 
+}
+ @media only screen and (max-width: 601px){
+     .image-detail img {
+         width: 100px;
+         height: 100px;
+    }
+
+    .recipe-name,
+    .recipe-category,
+    .recipe-recommended,
+    .recipe-cooking, 
+    .recipe-preparation, 
+    .recipe-ingredients, 
+    .recipe-description{
+         width: 150px;
+    }
+     nav .brand-logo{
+         font-size: 20px!important;
+    }
+}
+/*End Recipe detail*/
