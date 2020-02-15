@@ -23,8 +23,7 @@ files = GridFS(mongo.db)
 @app.route('/home')
 def home():
     return render_template("home.html", login=mongo.db.IQ2019.find())
-
-    
+  
 # for register form to To save data in mongodb
 @app.route('/register', methods=['POST']) 
 def register():
@@ -34,8 +33,7 @@ def register():
     password = data['password']
     mongo.db.users.insert_one({"user_name": user_name, "password": password})
     return redirect(url_for('get_recipes'))
-    
-    
+     
 # for login form to join with mongodb data
 @app.route('/login', methods=['POST'])
 def login():
@@ -83,12 +81,10 @@ def insert_recipe():
     recipes.insert_one(recipe_data)
     return redirect(url_for('get_recipes'))
 
-
 #for get recipes
 @app.route('/get_recipes')
 def get_recipes():
     return render_template("recipes.html", recipes=mongo.db.recipes.find(),names=mongo.db.recipes.find())
-
 
 # for search name of recipes
 @app.route('/search', methods=['POST'])
@@ -98,7 +94,6 @@ def search():
     mongo_data = mongo.db.recipes.find({"recipe_name": recipe_name})
     return render_template("recipes.html", recipes=mongo_data, names=mongo.db.recipes.find())
  
-    
 # for edit recipe
 @app.route('/edit_recipe/<recipe_id>')
 def edit_recipe(recipe_id):
@@ -107,7 +102,6 @@ def edit_recipe(recipe_id):
     return render_template('editrecipe.html', recipe=the_recipe,
                            Categories=all_Categories)
   
-    
 #for update recipe                       
 @app.route('/update_recipe/<recipe_id>', methods=["POST"])
 def update_recipe(recipe_id):
@@ -124,11 +118,13 @@ def update_recipe(recipe_id):
         'category_name':request.form.get('category_name'),
         'recipe_description': request.form.get('recipe_description'),
         'recipe_image': image.filename,
-        'is_recommended':request.form.get('is_recommended')
+        'is_recommended':request.form.get('is_recommended'),
+        'Ingredients':request.form.get('Ingredients'),
+        'preparation_time':request.form.get('preparation_time'),
+        'cooking_time':request.form.get('cooking_time')
     })
     return redirect(url_for('get_recipes'))
     
-
 @app.route('/images/<filename>')
 def image(filename):
     image = files.get_last_version(filename=filename)
@@ -140,14 +136,12 @@ def delete_recipe(recipe_id):
     mongo.db.recipes.remove({'_id': ObjectId(recipe_id)})
     return redirect(url_for('get_recipes'))
     
-
 # categories
 @app.route('/get_categories')
 def get_categories():
     return render_template('categories.html',
                            categories=mongo.db.categories.find())
-                           
-
+                       
 # for edit category                           
 @app.route('/edit_category/<category_id>')
 def edit_category(category_id):
@@ -155,7 +149,6 @@ def edit_category(category_id):
                            category=mongo.db.categories.find_one(
                            {'_id': ObjectId(category_id)}))
                            
-
 # for update category                           
 @app.route('/update_category/<category_id>', methods=['POST'])
 def update_category(category_id):
@@ -164,14 +157,12 @@ def update_category(category_id):
         {'category_name': request.form.get('category_name')})
     return redirect(url_for('get_categories'))
     
-
 # for delete category    
 @app.route('/delete_category/<category_id>')
 def delete_category(category_id):
     mongo.db.categories.remove({'_id': ObjectId(category_id)})
     return redirect(url_for('get_categories'))
     
-
 # for insert category   
 @app.route('/insert_category', methods=['POST'])
 def insert_category():
@@ -179,7 +170,6 @@ def insert_category():
     mongo.db.categories.insert_one(category_doc)
     return redirect(url_for('get_categories'))
  
-    
 # for Recipe details
 @app.route('/recipe_detail/<recipe_id>')
 def recipe_detail(recipe_id):
