@@ -1,6 +1,7 @@
 import os
 import sys
 import logging
+import env
 from flask import Flask, render_template, redirect, request, url_for, Response, session
 from flask_pymongo import PyMongo
 from bson.objectid import ObjectId
@@ -12,7 +13,7 @@ app = Flask(__name__)
 app.config["MONGO_DBNAME"] = 'IraqDB'
 app.config["MONGO_URI"] = os.getenv('MONGO_URI', 'mongodb://localhost')
 
-app.config["SECRET_KEY"] = "super secret key"
+app.config["SECRET_KEY"] = os.getenv('SECRET_KEY')
 
 mongo = PyMongo(app)
 files = GridFS(mongo.db)
@@ -123,7 +124,7 @@ def update_recipe(recipe_id):
         'category_name':request.form.get('category_name'),
         'recipe_description': request.form.get('recipe_description'),
         'recipe_image': image.filename,
-        'is_Recommended':request.form.get('is_Recommended')
+        'is_recommended':request.form.get('is_recommended')
     })
     return redirect(url_for('get_recipes'))
     
@@ -179,6 +180,11 @@ def insert_category():
     return redirect(url_for('get_categories'))
  
     
+# for Recipe details
+@app.route('/recipe_detail/<recipe_id>')
+def recipe_detail(recipe_id):
+    return render_template('recipedetails.html', recipe = mongo.db.recipes.find_one({"_id": ObjectId(recipe_id)}))                      
+
 # for add category  
 @app.route('/add_category')
 def add_category():
