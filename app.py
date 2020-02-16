@@ -13,7 +13,7 @@ app = Flask(__name__)
 app.config["MONGO_DBNAME"] = 'IraqDB'
 app.config["MONGO_URI"] = os.getenv('MONGO_URI', 'mongodb://localhost')
 
-app.config["SECRET_KEY"] = os.getenv('SECRET_KEY')
+app.config['SECRET_KEY'] = 'super secret key'
 
 mongo = PyMongo(app)
 files = GridFS(mongo.db)
