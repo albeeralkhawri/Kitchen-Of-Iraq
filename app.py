@@ -1,7 +1,7 @@
 import os
 import sys
 import logging
-import env
+#import env
 from flask import Flask, render_template, redirect, request, url_for, Response, session
 from flask_pymongo import PyMongo
 from bson.objectid import ObjectId
@@ -13,7 +13,7 @@ app = Flask(__name__)
 app.config["MONGO_DBNAME"] = 'IraqDB'
 app.config["MONGO_URI"] = os.getenv('MONGO_URI', 'mongodb://localhost')
 
-app.config['SECRET_KEY'] = 'super secret key'
+app.config["SECRET_KEY"] = os.getenv('SECRET_KEY')
 
 mongo = PyMongo(app)
 files = GridFS(mongo.db)
