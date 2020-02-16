@@ -62,6 +62,10 @@
  .search{
      margin-top: 5%!important;
 }
+
+.waves-effect input[type="submit"]{
+    outline: none!important;
+}
  .switch label{
      color: #fff;
      font-size: 15px 
@@ -157,6 +161,9 @@
 }
  .recipe-detail{
      margin-top: 5% 
+}
+.btn-floating{
+    margin-bottom: 10px!important
 }
  @media only screen and (max-width: 601px){
      .image-detail img {
