@@ -2,18 +2,18 @@
 <div class="recipe">
     <nav>
         <div class="nav-wrapper black">
-            <a class="brand-logo" style="font-size:30px; margin-left:10px" href="{{ url_for('get_recipes') }}">Kitchen Of Iraq</a>
+            <a class="brand-logo" href="{{ url_for('get_recipes') }}">Kitchen Of Iraq</a>
             <ul id="slide-out" class="side-nav">
-                <li><a class="btn red" href="{{ url_for('add_recipes') }}">Add Recipe</a></li>
-                <li><a class="btn" href="{{ url_for('get_recipes') }}">Recipes</a></li>
-                <li><a class="btn" style="background-color:#909124" href="{{ url_for('get_categories') }}">Categories</a></li>
-                <li><a class="btn blue" href="{{ url_for('home') }}">Log out</a></li>
+                <li><a class="btn blue black" href="{{ url_for('add_recipes') }}">Add Recipe</a></li>
+                <li><a class="btn blue black" href="{{ url_for('get_recipes') }}">Recipes</a></li>
+                <li><a class="btn blue black" href="{{ url_for('get_categories') }}">Categories</a></li>
+                <li><a class="btn blue black" href="{{ url_for('home') }}">Log out</a></li>
             </ul>
             <ul class="right hide-on-med-and-down">
-                <a class="waves-effect waves-light btn red left" href="{{ url_for('add_recipes') }}" style="margin-top: 2%"><i class="material-icons left">playlist_add</i>Add Recipe</a>
-                <a class="waves-effect waves-light btn left" href="{{ url_for('get_recipes') }}" style="margin-top: 2%"><i class="material-icons left">restaurant_menu</i>Recipes</a>
-                <a class="waves-effect waves-light btn left" href="{{ url_for('get_categories') }}" style="margin-top:2%;background-color:#909124"><i class="material-icons left">poll</i>Categories</a>
-                <a class="waves-effect waves-light btn blue left" href="{{ url_for('home') }}" style="margin-top: 2%"><i class="material-icons left">exit_to_app</i>Log out</a>
+                <a class="waves-effect waves-light left" href="{{ url_for('add_recipes') }}"><i class="material-icons left">playlist_add</i>Add Recipe</a>
+                <a class="waves-effect waves-light left" href="{{ url_for('get_recipes') }}"><i class="material-icons left">restaurant_menu</i>Recipes</a>
+                <a class="waves-effect waves-light left" href="{{ url_for('get_categories') }}"><i class="material-icons left">poll</i>Categories</a>
+                <a class="waves-effect waves-light left" href="{{ url_for('home') }}"><i class="material-icons left">exit_to_app</i>Log out</a>
             </ul>
             <a href="#" data-activates="slide-out" class="button-collapse"><i class="material-icons">menu</i></a>
         </div>

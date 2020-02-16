@@ -178,3 +178,16 @@
     }
 }
 /*End Recipe detail*/
+
+/*Navbar*/
+.brand-logo{
+    font-size:30px;
+    margin-left:10px
+}
+.side-nav {
+    width: auto!important;
+    text-align: center;
+    background-color: transparent!important;
+    margin-top: 15%
+}
+/*End Navbar*/
