@@ -72,13 +72,13 @@
                 <div class="input-field col s12 file-field input-field" style="margin-bottom:3%;">
                     <div class="btn red right">
                         <span>Select Image</span>
-                        <input name="recipe_image" id="recipe_iamge" type="file" required>
+                        <input name="recipe_image" id="recipe_iamge" value="{{ recipe.recipe_image }}" type="file" required>
                     </div>
                 </div>
                 <div class="row">
                     <div class="switch">
                         <label>
-                            {% if recipe.is_Recommended %}
+                            {% if recipe.is_recommended %}
                             <input id="is_recommended" name="is_recommended" type="checkbox" checked> {% else %}
                             <input id="is_recommended" name="is_recommended" type="checkbox"> {% endif %}
                             <span class="lever"></span> Recommended
