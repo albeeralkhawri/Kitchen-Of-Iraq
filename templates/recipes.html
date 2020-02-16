@@ -21,17 +21,17 @@
     <div class="container center">
         <h1>Recipes</h1>
         <form action="/search" method="POST">
-            <a class="waves-effect waves-light">
-                <input list="names" type="search" name="search" placeholder="search recipe name" class="search" style="font-size:20px; width:300px" autocomplete="off" />
-            </a>
+            <div class="waves-effect waves-light">
+                <input list="names" type="search" name="search" placeholder="search recipe name" class="search" autocomplete="off" />
+            </div>
             <datalist id="names">
                 {% for recipe in names %}
                 <option value="{{recipe.recipe_name}}"></option>
                 {% endfor %}
             </datalist>
-            <a class="waves-effect waves-light btn blue">
-                <input type="submit" value="search" style="outline: none" />
-            </a>
+            <div class="waves-effect waves-light btn blue">
+                <input type="submit" value="search"/>
+            </div>
         </form>
     </div>
 
