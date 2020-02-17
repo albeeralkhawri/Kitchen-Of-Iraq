@@ -158,6 +158,7 @@
  .recipe-description {
      display: flex;
      margin: .50em;
+     text-align: justify!important;
 }
  .recipe-detail{
      margin-top: 5% 
