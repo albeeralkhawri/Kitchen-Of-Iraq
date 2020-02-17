@@ -82,7 +82,7 @@
      padding: 0 0.5em;
 }
 /*Font or Text color */
- h1,h4,h5,a{
+ h1,h4,h5,a,h3{
      color:silver 
 }
 /*End Font or Text color*/
@@ -198,3 +198,12 @@
     margin-top: 15%
 }
 /*End Navbar*/
+
+/*For category*/
+.category-name{
+    border: 1px solid;
+    max-width: 350px;
+    margin-left: auto;
+    margin-right: auto
+}
+/*End category*/
