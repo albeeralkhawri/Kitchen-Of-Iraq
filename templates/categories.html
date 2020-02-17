@@ -18,18 +18,14 @@
             <a href="#" data-activates="slide-out" class="button-collapse"><i class="material-icons">menu</i></a>
         </div>
     </nav>
-    <div class="container">
-        <h1 style="color:#909124">Categories</h1>
-        <ul class="collapsible" data-collapsible="accordion">
+        <h1>Categories</h1>
+        <div class="center container">
+        <ul class="category-name" data-collapsible="accordion">
             {% for category in categories %}
-            <li>
-                <div class="collapsible-header" style="background-color:#909124">
-                    <a href="{{url_for('delete_category', category_id=category._id)}}" class="waves-effect waves-light btn btn_small red">Delete</a>
-                    <a href="{{url_for('edit_category', category_id=category._id)}}" class="waves-effect waves-light btn btn_small blue">Edit</a>
-
-                    <strong>{{category.category_name}}</strong>
-
-                </div>
+            <li class="category-name">
+            <h4><strong>{{category.category_name}}</strong></h4>
+                    <a href="{{url_for('delete_category', category_id=category._id)}}" class="btn-floating red"><i class="material-icons">delete</i></a>
+                    <a href="{{url_for('edit_category', category_id=category._id)}}" class="btn-floating blue"><i class="material-icons">edit</i></a>
             </li>
             {% endfor %}
         </ul>
