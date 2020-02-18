@@ -1,9 +1,9 @@
 {% extends 'base.html'%} {% block content %}
 <div class="home-container">
     <nav>
-        <div class="nav-wrapper black" style="height:70px">
-            <a class="left brand-logo" style="font-size:30px; margin-left:10px">Kitchen Of Iraq</a>
-            <div class="row login" style="width: 40%;">
+        <div class="nav-wrapper black">
+            <a class="left brand-logo" href="{{ url_for('home') }}">Kitchen Of Iraq</a>
+            <div class="row login">
                 <form action="/login" "/get_recipes" method="post">
                     <div class="input-field col s6">
                         <i class="material-icons prefix">account_circle</i>
@@ -15,7 +15,7 @@
                         <input id="icon_password" type="password" class="validate" minlength="8" name="password" required>
                         <label for="icon_password">Password</label>
                     </div>
-                    <div class="col" style="float: right; margin-right:-30%">
+                    <div class="col logbut">
                         <div class="login_form_login_button uiButton uiButtonConfirm">
                             <button class="waves-effect waves-light btn" type="submit">Log In</button>
                         </div>
@@ -29,7 +29,7 @@
         <h3> In Kitchen Of Iraq </h3>
         <h3> Thanks for visiting and watching happy</h3>
     </div>
-    <div class="row log" style="display:none;">
+    <div class="row logh">
         <form action="/login" "/get_recipes" method="post">
             <div class="input-field col s12">
                 <i class="material-icons prefix">account_circle</i>

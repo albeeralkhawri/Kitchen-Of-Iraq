@@ -87,17 +87,36 @@
 }
 /*End Font or Text color*/
 /* responsive screen home page*/
+    .login{
+         width: 40%!important;
+    }
+    .logbut{
+        float: right!important;
+        margin-right:-30%!important
+    }
+    .logh{
+        display:none;
+    }
+    .log{
+        display: block!important;
+        width:50%;
+        margin-top: 10%;
+        margin-left: auto!important;
+        margin-right: auto!important
+    }
  @media only screen and (max-width: 1024px){
      .login{
-         display: none 
+         display: none;
     }
-     .log{
+     .logh{
          display: block!important;
          width:50%;
          margin-top: 10%;
+         margin-left: auto!important;
+         margin-right: auto!important
     }
      .lo{
-         margin: 0 40% auto!important 
+         margin: 0 40% auto!important
     }
 }
 /* Recipes List */
@@ -208,3 +227,9 @@
     margin-right: auto
 }
 /*End category*/
+
+/* iamge button */
+.upimg{
+    margin-bottom:3%;
+}
+/* end iamge button */
