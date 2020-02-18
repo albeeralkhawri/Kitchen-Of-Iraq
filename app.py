@@ -106,18 +106,24 @@ def edit_recipe(recipe_id):
 @app.route('/update_recipe/<recipe_id>', methods=["POST"])
 def update_recipe(recipe_id):
     recipes = mongo.db.recipes
+    recipe = mongo.db.recipes.find_one({'_id': ObjectId(recipe_id)})
     image = request.files.get('recipe_image')
-    files.put(
-        image,
-        content_type=image.content_type,
-        filename=image.filename
-    )
+
+    if image:
+        files.put(
+            image,
+            content_type=image.content_type,
+            filename=image.filename
+        )
+        file=image.filename
+    else:
+        file = recipe["recipe_image"]
     recipes.update( {'_id': ObjectId(recipe_id)},
     {
         'recipe_name':request.form.get('recipe_name'),
         'category_name':request.form.get('category_name'),
         'recipe_description': request.form.get('recipe_description'),
-        'recipe_image': image.filename,
+        'recipe_image': file,
         'is_recommended':request.form.get('is_recommended'),
         'Ingredients':request.form.get('Ingredients'),
         'preparation_time':request.form.get('preparation_time'),
