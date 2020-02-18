@@ -41,7 +41,7 @@ def login():
     print(data)
     user_name = data['user_name']
     password = data['password']
-    mongo_data = mongo.db.users.find_one({"user_name": user_name})
+    mongo_data = mongo.db.users.find_one({"user_name": user_name, "password": password})
     if mongo_data is None:
         return redirect(url_for('notfound'))
     session['user_name'] = user_name
