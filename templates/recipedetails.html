@@ -42,6 +42,7 @@
             <h5><span>Description:</span> {{recipe.recipe_description}}</h5>
         </div>
         <div class="col s6 button">
+            <a href="{{ url_for('get_recipes') }}" class="btn-floating btn orange"><i class="material-icons">arrow_back</i></a>
             <a href="{{url_for('delete_recipe', recipe_id=recipe._id)}}" class="btn-floating red"><i class="material-icons">delete</i></a>
             <a href="{{url_for('edit_recipe', recipe_id=recipe._id)}}" class="btn-floating blue"><i class="material-icons">edit</i></a>
         </div>
