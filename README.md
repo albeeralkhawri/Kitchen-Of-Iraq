@@ -15,7 +15,7 @@
 
 #### <p align="center">This is the sitemap</p>
 <p align="center">
-<img src="https://www.up-00.com/i/00160/27pl4stpe1mq.png"></p>
+<img src="https://www.up-00.com/i/00160/zrfhfm59zzf7.png"></p>
 
 ***
 
@@ -95,9 +95,10 @@
 - The html code was checked manually I tried to search for a special validator html template but I did not find the natural validator does not work on the html template but when i was check manually the html template didn't found any error or problem
 - I checked the CSS code manually and through the CSS checker I did not get any errors or problems and the picture below shows that
 <img src="https://www.up-00.com/i/00160/f0ggm608a3d9.png">
+
 - The Python code was verified manually I didn't see any errors and the project works perfectly.
 - The JavaScript script was revised manually in min.js and jquery.js I didn't see any problem and the code works perfectly.
-- The site has been tested with different devices to ensure the site works perfectly and is compatible with all devices for devices that have been tested below
+- The site has been tested with different devices to ensure the site works perfectly and is compatible with all devices for devices that  have been tested below.
    - My laptop dell 
    - My phone iphone 8 plus
    - My tablet Samsung Tab E
@@ -125,6 +126,7 @@
 
   - I tried to submit an incomplete form
   <img src="https://www.up-00.com/i/00160/3cn9jp8tbvxw.png">
+  
   - I have checked all the entries and confirmed that the user cannot send any empty fields
   - You entered all the details and successfully added a recipe
 
