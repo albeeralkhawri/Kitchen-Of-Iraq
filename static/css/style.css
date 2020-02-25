@@ -176,7 +176,7 @@
  .recipe-description {
      display: flex;
      margin: .50em;
-     text-align: justify!important;
+     text-align: initial!important;
 }
  .recipe-detail{
      margin-top: 5% 
