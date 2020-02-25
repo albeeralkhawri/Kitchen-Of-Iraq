@@ -96,8 +96,8 @@
 - I checked the CSS code manually and through the CSS checker I did not get any errors or problems and the picture below shows that
 <img src="https://www.up-00.com/i/00160/f0ggm608a3d9.png">
 
-- The Python code was verified manually I didn't see any errors and the project works perfectly.
-- The JavaScript script was revised manually in min.js and jquery.js I didn't see any problem and the code works perfectly.
+- The Python code was manually verified by Inspection, Console and I didn't see any errors and also I ran the code line by line and I didn't see any errors and the project works perfectly.
+- I manually checked JavaScript min.js and jquery.js via Inspection, Consol and I also ran the code line by line and didn't see any errors and the project works perfectly.
 - The site has been tested with different devices to ensure the site works perfectly and is compatible with all devices for devices that  have been tested below.
    - My laptop dell 
    - My phone iphone 8 plus
@@ -105,48 +105,72 @@
    - my friends Phones Samsung Note 8 and samsung Note 9 and iphone 11
 
 - The register was test in this way below
-  - I tried to submit an empty form
-  - I tried to submit an incomplete form
-  - I tried to submit a form with a mismatch password
-  - I tried to submit a form with a password of less than 8 letters or numbers
+  - I tried to submit an empty form but did not send it and say please fill in the fields
+  - I tried to submit an incomplete form but did not send it and say please fill in the fields
+  - I tried to submit a form with a mismatched password that did not send and say the password did not match
+  - I tried to send a form with a password of less than 8 letters or numbers but it was not sent and says please write it at least 8 or more characters
   - Then I tried to submit a completed form with complete requirements and it succeeded
 
 - The Log in was test in this way below
-  - I tried to submit an empty form
-  - I tried to log in with an error username
-  - I tried to log in as an error password
+  - I tried to submit an empty form but did not send it and say please fill in the fields
+  - I tried to login with a wrong username, took me to a page with instructions that says Registration or verification of the password and username
+  - I tried to login as an error password, took me to a page with instructions that says Registration or verification of the password and username
   - Then I logged in with a valid username and password and succeeded
 
 - When Log out was test in this way below
   - When you click Log Out, you will return to the home page
 
 - The Add Recipe was test in this way below
-  -  tried to submit an empty form
+  -  tried to submit an empty form but did not send it and say please fill in the fields
   <img src="https://www.up-00.com/i/00160/8buxp2wbrein.png">
 
-  - I tried to submit an incomplete form
+  - I tried to submit an incomplete form but did not send it and say please fill in the fields
   <img src="https://www.up-00.com/i/00160/3cn9jp8tbvxw.png">
   
   - I have checked all the entries and confirmed that the user cannot send any empty fields
-  - You entered all the details and successfully added a recipe
+  - I tried to enter all the details and successfully added the recipe
 
 - The Edit Recipe was test in this way below
   - It is check when the recipe is edited, the contents of the recipe are changed and in the database as well
   - It has been verified that you can modify only one thing that does not need to re-enter the data again. You can amend the name of the category, the picture or anything else.
   - It has been confirmed if you entered edit the recipe and do not want to change anything. You can press the cancel button or choose any part of Navbar
+  - I tried it when the name, image or something else in the recipe was changed, and it was actually changed on the recipe itself or in the recipe details
 
-- Checked when the recipe is deleted is deleted from the project and also from the project data
+- Tried when deleting the recipe is deleted successfully
 
-- The examination was done on the categories section in the same way that the recipes were examined and everything was fine
+- The categories was test in this way below
   - Checked, added, edited, deleted, was working perfectly
   - It was confirmed that the user could not submit an empty form
 
-- All buttons were checked in all sections of the project as they are working perfectly
+The add category was test in this way below
+  - I tried to submit an empty form but did not send it and say please fill in the fields
+  - I tried to write the name of the category, pressed Add, and I successfully added a new category
+
+- The edit category was test in this way below
+  - I tried to remove the category name. Resend it. The form is blank, but this is not allowed. It says this field is being filled in
+  - I tried to change the category name to another name and it succeeded in this
+
+- Tried when deleting the category is deleted successfully
+
+- The buttons was test in this way below
+  - I checked the login button and it works
+  - I checked the signup button and it worked
+  - I checked the navbar buttons, they all work
+  - I checked the button for adding the recipe it was working
+  - When you press the Delete Recipe button, it is deleted
+  - When you click on the "Edit Recipe" button, it will be moved to the "Edit Recipe" page
+  - When you press the Delete category button, it is deleted
+  - When you click on the "Edit category" button, it will be moved to the "Edit category" page
+  - When you press the Back button in the recipe detail, you will return to the recipes page
+  - The search button has been checked and it is working
+  - All buttons were checked in all sections of the project as they are working perfectly
+
 - The Search was test in this way below
-  - Confirmed when the input box is clicked, automatic search is displayed
-  - When the recipe name is entered in the input box and clicking on the search button, only the recipe will be displayed
+  - I tried to click on the search button and enter the name of his description, I did not search for the recipe and he says the field is being filled in
+  - When typing the name of the recipe in the search box, the recipe whose name was written will appear
 
 - It was confirmed that there is no code that I do not need
+- The project was generally checked by Inspection, Console and I didn't get any errors and the project works very well
 ***
 
 # Deployment
