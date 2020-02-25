@@ -22,7 +22,7 @@
         <h1>Recipes</h1>
         <form action="/search" method="POST">
             <div class="waves-effect waves-light">
-                <input list="names" type="search" name="search" placeholder="search recipe name" class="search" autocomplete="off" />
+                <input list="names" type="search" name="search" placeholder="search recipe name" class="search" autocomplete="off" required/>
             </div>
             <datalist id="names">
                 {% for recipe in names %}
