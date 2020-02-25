@@ -166,16 +166,6 @@
  - I stored the variables in env.py and put them in Reveal Config Vars to enable heroku to read the variables
    - Variables include IP, MONGO_URI, PORT, and SECRET_KEY
  - Add the Procfile required by Heroku
-
-## The step of local Deployment
- - Project cloning from (https://github.com/albeeralkhawri/Kitchen-Of-Iraq)
- - Create a new workspace and add a project file to workspace
- - Install python3 on your workspace
- - Install requirements.txt, pip3 install -r requirements.txt
- - Install the required dependencies
- - Add default variables like IP, MONGO_URI, PORT, and SECRET_KEY to a file env.py
- - Use the following command to run the project python3 app.py
-
 ***
 
 # Credits
