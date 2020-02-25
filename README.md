@@ -105,14 +105,14 @@
    - my friends Phones Samsung Note 8 and samsung Note 9 and iphone 11
 
 - The register was test in this way below
-  - I tried to submit an empty form but did not send it and say please fill in the fields
-  - I tried to submit an incomplete form but did not send it and say please fill in the fields
-  - I tried to submit a form with a mismatched password that did not send and say the password did not match
-  - I tried to send a form with a password of less than 8 letters or numbers but it was not sent and says please write it at least 8 or more characters
+  - I tried to submit an empty form, but it didn't work and, say please fill in the fields
+  - I tried to submit an incomplete form, but it didn't work and, say please fill in the fields
+  - I tried to submit a form with a mismatched password that didn't work and say the password did not match
+  - I tried to send a form with a password of less than 8 letters or numbers but it was didn't work and says please write it at least 8 or more characters
   - Then I tried to submit a completed form with complete requirements and it succeeded
 
 - The Log in was test in this way below
-  - I tried to submit an empty form but did not send it and say please fill in the fields
+  - I tried to submit an empty form but, didn't work and, say please fill in the fields
   - I tried to login with a wrong username, took me to a page with instructions that says Registration or verification of the password and username
   - I tried to login as an error password, took me to a page with instructions that says Registration or verification of the password and username
   - Then I logged in with a valid username and password and succeeded
@@ -121,10 +121,10 @@
   - When you click Log Out, you will return to the home page
 
 - The Add Recipe was test in this way below
-  -  tried to submit an empty form but did not send it and say please fill in the fields
+  -  tried to submit an empty form but, didn't work and, say please fill in the fields
   <img src="https://www.up-00.com/i/00160/8buxp2wbrein.png">
 
-  - I tried to submit an incomplete form but did not send it and say please fill in the fields
+  - I tried to submit an incomplete form but, didn't work and, say please fill in the fields
   <img src="https://www.up-00.com/i/00160/3cn9jp8tbvxw.png">
   
   - I have checked all the entries and confirmed that the user cannot send any empty fields
@@ -143,7 +143,7 @@
   - It was confirmed that the user could not submit an empty form
 
 The add category was test in this way below
-  - I tried to submit an empty form but did not send it and say please fill in the fields
+  - I tried to submit an empty form but, didn't work and, say please fill in the fields
   - I tried to write the name of the category, pressed Add, and I successfully added a new category
 
 - The edit category was test in this way below
