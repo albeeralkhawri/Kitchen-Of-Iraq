@@ -19,7 +19,7 @@ pymongo==4.2.0
 six==1.16.0
 somepackage==1.2.3
 tensorboard==2.10.0
-tensorflow==3.9.2
+tensorflow==2.10.0
 termcolor==2.0.1
 typing-extensions==4.3.0
 Werkzeug==2.2.2
