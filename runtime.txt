@@ -35,4 +35,3 @@ virtualenv==16.2.0
 virtualenv-clone==0.5.3
 virtualenvwrapper==4.8.4
 Werkzeug==0.16.0
-wrapt==1.11.2
