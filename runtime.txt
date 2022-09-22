@@ -13,6 +13,4 @@ mccabe==0.6.1
 parso==0.1.1
 pbr==5.4.3
 pyasn1==0.4.7
-pylint==1.8.1
-pylint-flask==0.5
 
