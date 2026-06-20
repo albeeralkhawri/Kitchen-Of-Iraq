@@ -212,3 +212,5 @@ The add category was test in this way below
 
 - My thanks and appreciation for all that helped me and support me in order to complete this project and thank also the support of teachers at the Code Institute
 - I also thanked the Code Institute, from which I learned a lot, and this is the product of my work and Thanks Mentor helped me a lot
+
+By <a href="https://www.aadigitalworks.com/ie/wexford" rel="nofollow">Website Design Wexford</a>
